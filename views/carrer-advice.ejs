@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Career Advice | SGIFY</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #f4f6f9;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .card {
+      border-radius: 15px;
+      border: none;
+    }
+    .advice-list li {
+      padding: 12px;
+      background: #f9fafc;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      border-left: 4px solid #0d6efd;
+      transition: all 0.2s ease-in-out;
+    }
+    .advice-list li:hover {
+      background: #eef4ff;
+      transform: translateX(4px);
+    }
+    .header-title {
+      font-weight: 700;
+      color: #0d6efd;
+    }
+    .sub-title {
+      color: #6c757d;
+      font-size: 1rem;
+    }
+    .user-info {
+      background: #eef2f7;
+      padding: 12px 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="card shadow-lg p-5">
+      <!-- Page Header -->
+      <h2 class="header-title mb-2">🎯 Career Guidance</h2>
+      <p class="sub-title">Personalized insights tailored to your skills and career goals.</p>
+
+      <!-- User Info -->
+      <div class="user-info">
+        <strong>👤 Name:</strong> <%= user.name %><br>
+        <strong>📧 Email:</strong> <%= user.email %><br>
+        <strong>💡 Skills:</strong> <%= (user.skills && user.skills.length) ? user.skills.join(", ") : "Not specified" %>
+      </div>
+
+      <!-- Career Advice Section -->
+      <% if (advice && advice.length > 0) { %>
+        <h4 class="mt-4">📢 Personalized Recommendations</h4>
+        <ol class="advice-list mt-3">
+          <% advice.forEach((point, idx) => { %>
+            <li><%= point %></li>
+          <% }) %>
+        </ol>
+      <% } else { %>
+        <div class="alert alert-info mt-4">
+          ℹ️ No career advice available yet. Click below to generate tailored guidance.
+        </div>
+      <% } %>
+
+      <!-- Action Button -->
+      <div class="mt-4 d-flex justify-content-between">
+        <form action="/career-advice" method="POST">
+          <button type="submit" class="btn btn-primary btn-lg">
+            🔮 Generate New Advice
+          </button>
+        </form>
+        <a href="/dashboard" class="btn btn-outline-secondary btn-lg">
+          ⬅ Back to Dashboard
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

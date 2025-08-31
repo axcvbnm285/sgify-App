@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGIFY - Login</title>
+
+  <!-- Bootstrap CSS -->
+  <%- include('./public/links'); %>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #007bff, #6610f2);
+      font-family: "Segoe UI", sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      border-radius: 1rem;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      border: none;
+    }
+    .brand-title {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #007bff;
+    }
+    .btn-gradient {
+      background: linear-gradient(135deg, #007bff, #6610f2);
+      color: white;
+      font-weight: 600;
+      border: none;
+    }
+    .btn-gradient:hover {
+      opacity: 0.9;
+      color: #fff;
+    }
+    .form-label {
+      font-weight: 500;
+    }
+    .text-muted a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .text-muted a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5">
+        <div class="card p-5">
+          <!-- Brand -->
+          <div class="text-center mb-4">
+            <h2 class="brand-title">SGIFY</h2>
+            <p class="text-muted">Smart Guidance for Your Future</p>
+          </div>
+
+          <!-- Login Form -->
+          <h4 class="text-center mb-3">Login to your account</h4>
+          <form action="/login" method="POST">
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-gradient w-100 py-2">Login</button>
+          </form>
+
+          <!-- Extra Links -->
+          <div class="text-center mt-4">
+            <p class="text-muted mb-1">Don’t have an account? <a href="/register">Sign up</a></p>
+            <p class="text-muted"><a href="/forgot-password">Forgot your password?</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <%- include('./public/scripts'); %>
+</body>
+</html>
