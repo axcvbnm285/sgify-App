@@ -3,12 +3,12 @@ const crypto = require('crypto');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-// GET Forgot Password Page
+
 exports.getForgotPassword = (req, res) => {
     res.render('forgot-password', { message: null });
 };
 
-// POST Forgot Password - Send Email
+
 exports.postForgotPassword = async (req, res) => {
     try {
         const { email } = req.body;
